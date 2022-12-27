@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+
+        <h1>Profile details of the logged in user</h1>
+        <div>
+            <p sec:authorize="hasRole('ROLE_USER')">This tex shows only the USER role</p>
+
+            <p sec:authorize="hasRole('ROLE_ADMIN')">This text shows only for ADMIN role</p>
+
+            <p>
+                <span>Username</span>
+                <span sec:authentication="principal.username"></span>
+
+            </p>
+            <p>
+                <span>Password</span>
+                <span sec:authentication="principal.password"></span>
+            </p>
+            <p>
+                <span>Enabled:</span>
+                <span sec:authentication="principal.enabled"></span>
+            </p>
+            <p>
+                <span>Roles:</span>
+                <span sec:authentication="principal.authorities"></span>
+            </p>
+        </div>
+
+    </body>
+</html>
